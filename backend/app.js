@@ -35,6 +35,8 @@ app.get('/getUsers', async (req, res) => {
 app.post('/addUser', async (req, res) => {
     try {
         const { name, price, salary } = req.body
+        salary = +salary
+        price = +price
         const user = { name, price, salary }
         console.log(user)
         await UserModel.create(user)
